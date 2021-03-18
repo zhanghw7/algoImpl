@@ -1,0 +1,72 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.iml
+.idea
+target
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.idea/
+application.pid
+
+.project
+
+.classpath
+target/
+.project
+.settings/
+/.apt_generated/*
+.classpath
+.factorypath
+.myhibernatedata
+.mymetadata
+.mystrutsdata
+.project
+.springBeans
+/.idea/*
+/.myeclipse/*
+/.settings/*
+/WebRoot/WEB-INF/classes/*
+/WebRoot/WEB-INF/db1.properties
+/WebRoot/WEB-INF/db.local.properties
+/bin/*
+/etc/*
+/WebRoot/WEB-INF/db.properties
+/WebRoot/WEB-INF/lib
+/build/
+src/db1.properties
+/logs/*
+src/com/cqmc/service/ResponseEventServiceImp2.java
+/bin/
+iop-web.iml
+git_itemlogs
+
+.git
+sftp-config.json
+.DS_Store
+.tern-project
+/bin/
+/WebRoot/WEB-INF/classes/*
+src/main/webapp/public/.vscode/sftp.json
+src/main/webapp/WEB-INF/pages/.vscode/sftp.json
+
