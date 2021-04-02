@@ -10,10 +10,20 @@ import org.junit.Test;
 public class HeapTest {
     @Test
     public void test(){
-        int[] arr = {1,3,2,9,5};
-        PriorityQueue q = new PriorityQueue(arr);
-        MyPriorityQueue<Object> objects = new MyPriorityQueue<>();
-
-
+        int[] arr = {23, 1,3,2,9,5, 56};
+        MyPriorityQueue<Integer> q = new MyPriorityQueue<>();
+        for (int value : arr) {
+            q.offer(value);
+        }
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
+        System.out.println(q.poll());
     }
 }
