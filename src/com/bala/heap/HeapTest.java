@@ -2,6 +2,8 @@ package com.bala.heap;
 
 import org.junit.Test;
 
+import java.util.Comparator;
+
 /**
  * @Description
  * @Author Zhang Hongwei
@@ -10,20 +12,18 @@ import org.junit.Test;
 public class HeapTest {
     @Test
     public void test(){
-        int[] arr = {23, 1,3,2,9,5, 56};
-        MyPriorityQueue<Integer> q = new MyPriorityQueue<>();
+        int[] arr = {99, 1,3,2,9,5, 56, -2};
+        MyPriorityQueue<Integer> q = new MyPriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
         for (int value : arr) {
             q.offer(value);
         }
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
-        System.out.println(q.poll());
+        while (q.size() > 0){
+            System.out.println(q.poll());
+        }
     }
 }
