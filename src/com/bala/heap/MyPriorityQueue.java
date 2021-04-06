@@ -1,9 +1,6 @@
 package com.bala.heap;
 
-import java.util.AbstractQueue;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * 实现PriorityQueue,按Comparable排序时默认为最小堆
@@ -31,6 +28,32 @@ public class MyPriorityQueue<E> extends AbstractQueue<E>{
     public MyPriorityQueue(int initialCapacity, Comparator<? super E> comparator) {
         this.comparator = comparator;
         queue = new Object[initialCapacity];
+    }
+
+    public MyPriorityQueue(Collection<? extends E> collections, Comparator<? super E> comparator){
+        this.comparator = comparator;
+        initElements(collections);
+    }
+
+    public MyPriorityQueue(Collection<? extends E> collections){
+        this(collections, null);
+    }
+
+    private void initElements(Collection<? extends E> collections){
+        Object[] objects = collections.toArray();
+        if (objects.length == 0){
+            queue = new Object[DEFAULT_INITIAL_CAPACITY];
+        }else {
+            queue = objects;
+        }
+        size = objects.length;
+        heapify();
+    }
+
+    private void heapify(){
+        for (int i = size / 2; i >= 0 ; i--) {
+            swapDown(i);
+        }
     }
 
     //成倍扩大queue.length
