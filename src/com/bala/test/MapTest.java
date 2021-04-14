@@ -1,5 +1,6 @@
 package com.bala.test;
 
+import com.bala.tree.binaryTree.AVLTree;
 import org.junit.Test;
 
 import java.util.Arrays;

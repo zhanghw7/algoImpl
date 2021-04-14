@@ -50,13 +50,14 @@ public class MyPriorityQueue<E> extends AbstractQueue<E>{
         heapify();
     }
 
+    //将传入的数组变成heap，复杂度O(n)
     private void heapify(){
         for (int i = size / 2; i >= 0 ; i--) {
             swapDown(i);
         }
     }
 
-    //成倍扩大queue.length
+    //成倍扩大queue.length,还可以优化 TODO
     public void grow(){
         if (queue.length >= MAX_ARRAY_SIZE){
             throw new OutOfMemoryError();
