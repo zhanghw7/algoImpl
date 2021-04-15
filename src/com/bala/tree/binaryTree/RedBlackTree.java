@@ -108,7 +108,7 @@ public class RedBlackTree {
                 return;
             }
             Node pp = p.pre;
-            if (pp == null /*|| isRed(pp)*/){
+            if (pp == null || isRed(pp)){
                 throw new RuntimeException("pp should not be null or red");
             }
             if (isLeftChild(pp, p)){
@@ -122,11 +122,15 @@ public class RedBlackTree {
                 }else {
                     if (isRightChild(p, iter)){
                         leftRotate(p);
+                        rightRotate(pp);
+                        iter.isRed = false;
+                        pp.isRed = true;
+                    }else {
+                        rightRotate(pp);
+                        p.isRed = false;
+                        pp.isRed = true;
+                        iter = p;
                     }
-                    rightRotate(pp);
-                    p.isRed = false;
-                    pp.isRed = true;
-                    iter = p;
                 }
             }else {
                 if (isRed(pp.left)){
@@ -139,11 +143,15 @@ public class RedBlackTree {
                 }else {
                     if (isLeftChild(p, iter)){
                         rightRotate(p);
+                        leftRotate(pp);
+                        iter.isRed = false;
+                        pp.isRed = true;
+                    }else {
+                        leftRotate(pp);
+                        p.isRed = false;
+                        pp.isRed = true;
+                        iter = p;
                     }
-                    leftRotate(pp);
-                    p.isRed = false;
-                    pp.isRed = true;
-                    iter = p;
                 }
             }
         }

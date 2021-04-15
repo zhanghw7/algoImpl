@@ -12,8 +12,9 @@ public class NodeTest02 {
         Random r = new Random(10);
         RedBlackTree rb = new RedBlackTree();
         int temp = 0;
-        for (int i = 14; i > 1; i--) {
+        for (int i = 50; i > 1; i--) {
             temp = r.nextInt() % 50;
+            System.out.println(temp);
             rb.insert(temp);
         }
         System.out.println(rb.inorderTraversal());
