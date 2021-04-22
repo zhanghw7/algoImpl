@@ -234,7 +234,6 @@ public class AVLTree {
         return inorderTraversal(top);
     }
     private List<Integer> inorderTraversal(Node node){
-        System.out.println(balance(node) + "," + node.value);
         List<Integer> result = new ArrayList<>();
         if (node.left != null){
             result.addAll(inorderTraversal(node.left));
