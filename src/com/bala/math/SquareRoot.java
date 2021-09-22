@@ -1,0 +1,43 @@
+package com.bala.math;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+import java.math.RoundingMode;
+
+/**
+ * @Description 开平方
+ * @Author Zhang Hongwei
+ * @Date 2021/9/20 21:20
+ */
+public class SquareRoot {
+    /**
+     * X = x - y/y' = x - (x^2 - a)/2x=x - (x - a/x)/2=(x + a/x)/2;
+     * square root , NewTon's Method
+     * @param num the number to be squareRooted
+     * @param precision precision
+     */
+    public static BigDecimal sqrt(BigDecimal num, int precision){
+        BigDecimal two = BigDecimal.valueOf(2);
+        MathContext mc = new MathContext(2 * precision, RoundingMode.HALF_UP); // 每次保留精度是目标精度的2倍，这里没有明确根据要这样做..我凭感觉来的
+        int p = (int) Math.ceil(Math.log(precision) / Math.log(2)) + 1;//根据牛顿法quadratic convergence（二次收敛的特性）确定循环次数
+        BigDecimal r = BigDecimal.valueOf(1);//初始值
+        int cnt = 0;
+        while (cnt < p){
+            r = num.divide(r, mc).add(r).divide(two, mc);
+            cnt++;
+        }
+       return r.round(new MathContext(precision, RoundingMode.HALF_UP));
+    }
+
+    /**
+     *  500精度的根号2
+     *  1.41421356237309504880168872420969807856967187537694807317667973799073247846210703885038753432764157273501384623091229702492483605585073721264412149709993583141322266592750559275579995050115278206057147010955997160597027453459686201472851741864088919860955232923048430871432145083976260362799525140798968725339654633180882964062061525835239505474575028775996172983557522033753185701135437460340849884716038689997069900481503054402779031645424782306849293691862158057846311159666871301301561856898723723
+     *  1.4142135623730950488016887242096980785696718753769480731766797379907324784621070388503875343276415727350138462309122970249248360558507372126441214970999358314132226659275055927557999505011527820605714701095599716059702745345968620147285174186408891986095523292304843087143214508397626036279952514079896872533965463318088296406206152583523950547457502877599617298355752203375318570113543746034084988471603868999706990048150305440277903164542478230684929369186215805784631115966687130130156185689872372
+     * @param args
+     */
+    public static void main(String[] args) {
+        BigDecimal sqrt = sqrt(BigDecimal.valueOf(2), 10000);
+        System.out.println(sqrt);
+    }
+}
